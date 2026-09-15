@@ -1,0 +1,104 @@
+@page
+@model RecruitCatIsettlx.Pages.Companies.DetailsModel
+
+@{
+    ViewData["Title"] = "Company Details";
+}
+
+<h1>Company Details</h1>
+
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.PositionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.PositionName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.MinimumSalary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.MinimumSalary)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.MaximumSalary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.MaximumSalary)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.StartDate)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.Location)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.Website)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.Website)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company.IsRemote)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.IsRemote)
+        </dd>
+
+        <dt class="col-sm-2">
+            Industry
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.Industry.Name)
+        </dd>
+    </dl>
+</div>
+
+<h3>Candidates</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Candidates)
+{
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.Email</td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Company.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
